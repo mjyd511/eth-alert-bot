@@ -5,17 +5,24 @@ ETH Alert Bot
 بوت يفحص سعر الإيثيريوم (ETH) وأخباره، ويرسل تنبيهات عبر تليجرام
 عند حدوث تحرك سعري كبير أو ظهور خبر جديد متعلق بـ ETH.
 
-** نسخة "دورة واحدة" مخصّصة لـ PythonAnywhere Scheduled Tasks **
-هذا السكريبت ينفّذ فحص واحد فقط ثم يخرج. منصة الاستضافة (PythonAnywhere)
-هي اللي تستدعيه تلقائياً كل فترة محددة (مثلاً كل 5-15 دقيقة) عبر
-خاصية Scheduled Tasks، فلا حاجة لحلقة لا نهائية أو Ctrl+C.
+** نسخة "دورة واحدة" مخصّصة لـ GitHub Actions **
+هذا السكريبت ينفّذ فحص واحد فقط ثم يخرج. GitHub Actions هو اللي
+يستدعيه تلقائياً كل فترة محددة (عبر cron schedule في ملف الـ workflow).
 
-التشغيل اليدوي للتجربة فقط:
+التوكن والـ chat_id يُقرآن من متغيرات البيئة (environment variables)
+TELEGRAM_BOT_TOKEN و TELEGRAM_CHAT_ID، اللي تُضبط من GitHub Secrets —
+لا تُكتب هذي القيم مباشرة بالكود.
+
+التشغيل اليدوي للتجربة فقط (تحتاج تصدير المتغيرات أولاً):
+    export TELEGRAM_BOT_TOKEN="xxxx"
+    export TELEGRAM_CHAT_ID="xxxx"
     pip install requests --break-system-packages
     python3 eth_alert_bot.py
 """
 
 import json
+import os
+import sys
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
@@ -25,10 +32,15 @@ from datetime import datetime, timezone
 # الإعدادات (Config) — عدّل هذا القسم إذا احتجت
 # ============================================================
 
-TELEGRAM_BOT_TOKEN = "8908908572:AAG0ztHWr-Xww-UUZDNR6u6eljpCmNnWV2w"
-TELEGRAM_CHAT_ID = "6566568708"
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-# ملاحظة: فترة الفحص لا تُضبط هنا — تُضبط من PythonAnywhere Scheduled Tasks
+if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+    print("[خطأ] لم يتم العثور على TELEGRAM_BOT_TOKEN أو TELEGRAM_CHAT_ID في متغيرات البيئة.")
+    print("تأكد من ضبط GitHub Secrets بشكل صحيح.")
+    sys.exit(1)
+
+# ملاحظة: فترة الفحص لا تُضبط هنا — تُضبط من جدولة GitHub Actions (cron)
 PRICE_MOVE_ALERT_PERCENT = 3.0           # تنبيه إذا تحرك السعر 3% أو أكثر
 PRICE_HISTORY_WINDOW = 12                # عدد العينات المخزّنة (تُحسب بحسب فترة التشغيل المجدولة)
 
