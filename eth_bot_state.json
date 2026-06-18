@@ -1,10 +1,13 @@
 {
   "seen_links": [
-    "https://www.coindesk.com/markets/2026/06/18/bitcoin-ether-slide-after-a-hawkish-fed-even-as-trump-s-signed-iran-deal-lifts-stocks"
+    "https://www.coindesk.com/policy/2026/06/18/malta-s-financial-regulator-explores-bringing-parts-of-defi-under-mica-s-orbit",
+    "https://www.coindesk.com/markets/2026/06/18/bitcoin-ether-slide-after-a-hawkish-fed-even-as-trump-s-signed-iran-deal-lifts-stocks",
+    "https://cointelegraph.com/news/tether-winds-down-gold-backed-derivative-stablecoin-ausdt?utm_source=rss&utm_medium=rss&utm_campaign=rss"
   ],
   "price_history": [
     1735.7,
-    1727.35
+    1727.35,
+    1741.73
   ],
   "started_before": true
 }
