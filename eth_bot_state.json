@@ -1,13 +1,18 @@
 {
   "seen_links": [
-    "https://www.coindesk.com/policy/2026/06/18/malta-s-financial-regulator-explores-bringing-parts-of-defi-under-mica-s-orbit",
+    "https://decrypt.co/371555/bitcoin-ethereum-traders-grow-bearish-prices-fall-fed",
+    "https://cointelegraph.com/news/ethereum-foundation-leadership-exodus-continues-with-directors-departure?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+    "https://www.coindesk.com/tech/2026/06/18/ethereum-foundation-loses-another-key-leader-as-co-executive-director-hsiao-wei-wang-resigns",
+    "https://cointelegraph.com/news/tether-winds-down-gold-backed-derivative-stablecoin-ausdt?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+    "https://cointelegraph.com/news/ledn-tether-gold-xaut-loans-bitcoin-backed-lending?utm_source=rss&utm_medium=rss&utm_campaign=rss",
     "https://www.coindesk.com/markets/2026/06/18/bitcoin-ether-slide-after-a-hawkish-fed-even-as-trump-s-signed-iran-deal-lifts-stocks",
-    "https://cointelegraph.com/news/tether-winds-down-gold-backed-derivative-stablecoin-ausdt?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+    "https://www.coindesk.com/policy/2026/06/18/malta-s-financial-regulator-explores-bringing-parts-of-defi-under-mica-s-orbit"
   ],
   "price_history": [
     1735.7,
     1727.35,
-    1741.73
+    1741.73,
+    1705.08
   ],
   "started_before": true
 }
