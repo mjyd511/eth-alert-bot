@@ -51,7 +51,7 @@ if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
 PRICE_MOVE_ALERT_PERCENT = 3.0           # تنبيه إذا تحرك السعر 3% أو أكثر
 PRICE_HISTORY_WINDOW = 12                # عدد العينات المخزّنة (تُحسب بحسب فترة التشغيل المجدولة)
 
-TECHNICAL_ANALYSIS_INTERVAL_HOURS = 3    # إرسال تحليل فني كل 3 ساعات
+TECHNICAL_ANALYSIS_INTERVAL_HOURS = 1    # إرسال تحليل فني كل ساعة
 TECHNICAL_ANALYSIS_LOOKBACK_DAYS = 7      # عدد الأيام المستخدمة لحساب الدعم/المقاومة/الاتجاه
 
 # مصادر أخبار RSS موثوقة
@@ -183,7 +183,7 @@ def send_telegram_message(text):
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text,
         "parse_mode": "HTML",
-        "disable_web_page_preview": False,
+        "disable_web_page_preview": True,
     }).encode("utf-8")
     req = urllib.request.Request(
         url, data=data, headers={"Content-Type": "application/json"}
